@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DAN NGUYEN PHOTO</title>
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(function(){
+    var $tooltip;
+    var $host=$(".tooltipHost");
+    var timer;
+    $host.mouseenter(function(event)
+    {
+        $tooltip=$(this).children(".tooltip");
+        $tooltip.css("left",event.pageX)
+            .css("top", event.pageY);
+        $tooltip.fadeTo(0,1);
+        $tooltip.show();
+        timer = setTimeout(function() {
+            $tooltip.fadeOut()
+            }, 1500);
+    });
+    $host.mousemove(function(event) {
+        // $tooltip.css("left",event.pageX)
+        // .css("top", event.pageY);
+         $tooltip.stop().animate({left: event.pageX, top: event.pageY}, 20)
+    });
+ 
+    $host.mouseleave(function() {
+        clearTimeout(timer);
+        $tooltip.stop();
+        $tooltip.hide();
+    });
+});
+</script>
+</head>
+
+
+<body>
+	<div id="wrapper">
+        <div class="header">
+			<img src="img/logoDan.jpg" width="180" height="135">
+			
+		</div>
+
+		<div class="menu">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Living Room</a></li>
+				<li><a href="#">Fashion</a></li>
+				<li><a href="#">Travel</a></li>
+				<li><a href="#">Art Aesthetic</a></li>
+			</ul>
+			<div id="timkiem">
+				<img src="img/1564719734820-444444.png" width="31" height="31">
+				<input type="search" id="search" placeholder="Search..." />
+			</div>
+			
+		</div>
+		<div class="center">
+			
+			 <div id="LR" class="tooltipHost" width="245" height="500"> <span class="tooltip">LIVING ROOM</span>
+				<img src="img/living room.jpg" width="245" height="500" >
+				
+			 </div>
+			
+			
+			 <div id="F" class="tooltipHost" width="245" height="500"> <span class="tooltip">FASHION</span>
+				<img src="img/fashion.jpg" width="245" height="500">
+				 
+			 </div>
+		    
+		    
+			<div id="T" class="tooltipHost" width="245" height="500"> <span class="tooltip">TRAVEL</span>
+				<img src="img/travel.jpg" width="245" height="500">
+			 </div>
+			
+		    
+			 <div id="A" class="tooltipHost" width="245" height="500"> <span class="tooltip">ART AESTHETIC</span>
+				<img src="img/art aesthetic.jpg" width="245" height="500">
+			 </div>
+		   
+		</div>
+		
+		<div class="bot">
+			<div class="menu1">
+			<ul>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		    <div id="lienhe">
+				<div id="fb"><img src="img/fb.png" width="100" height="50"></div>
+				<div id="ig"><img src="img/ig.jpg" width="70" height="60"></div>
+				</div>
+		    </div>
+		</div>
+	</div>
+</body>
+</html>
